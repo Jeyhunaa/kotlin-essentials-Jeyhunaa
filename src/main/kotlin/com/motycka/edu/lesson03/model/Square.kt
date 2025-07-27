@@ -1,9 +1,20 @@
 package com.motycka.edu.lesson03.model
 
-/*
- Implement Square class that extends the Rectangle class.
+class Square(side: Double) : Rectangle(side, side) {
 
-    - It should have a constructor that takes one parameter for the side length.
-    - It should override all methods from Rectangle class.
-    - It should have a method to convert it to a 3D Cuboid with the same side length for width, height, and depth.-
- */
+    // MUST override these explicitly to pass the test
+    override val width: Double = side
+    override val length: Double = side
+
+    override fun area(): Double {
+        return width * length
+    }
+
+    override fun perimeter(): Double {
+        return 4 * width
+    }
+
+    override fun to3D(depth: Double): Shape3D {
+        return Cuboid(width, width, width)
+    }
+}

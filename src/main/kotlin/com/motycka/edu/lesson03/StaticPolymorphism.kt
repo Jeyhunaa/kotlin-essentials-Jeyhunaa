@@ -1,23 +1,45 @@
 package com.motycka.edu.lesson03
 
+object AreaCalculator {
 
-/*
- Implement an object called AreaCalculator with the following methods:
- - fun calculateRectangleArea(a: Double, b: Double): Double
- - fun calculateRectangleArea(a: Int, b: Int): Double
- - fun calculateCircleArea(r: Double): Double
- - fun calculateCircleArea(r: Int): Double
- - fun calculateTriangleArea(a: Double, b: Double): Double
- - fun calculateTriangleArea(a: Int, b: Int): Double
+    // Rectangle: Double
+    fun calculateRectangleArea(a: Double, b: Double): Double {
+        return a * b
+    }
 
- The class demonstrates static polymorphism by providing multiple methods with the same name but different parameter types (Int and Double).
- The check will tolerate 0.001 inaccuracy.
- */
+    // Rectangle: Int
+    fun calculateRectangleArea(a: Int, b: Int): Double {
+        return a.toDouble() * b.toDouble()
+    }
 
-/*
- Uncomment the main function to try the solution.
- */
+    // Circle: Double
+    fun calculateCircleArea(r: Double): Double {
+        return Math.PI * r * r
+    }
 
-//fun main() {
-//    println(AreaCalculator.calculateRectangleArea(5, 10))
-//}
+    // Circle: Int
+    fun calculateCircleArea(r: Int): Double {
+        return Math.PI * r.toDouble() * r.toDouble()
+    }
+
+    // Triangle: Double
+    fun calculateTriangleArea(a: Double, b: Double): Double {
+        return 0.5 * a * b
+    }
+
+    // Triangle: Int
+    fun calculateTriangleArea(a: Int, b: Int): Double {
+        return 0.5 * a.toDouble() * b.toDouble()
+    }
+}
+
+fun main() {
+    println(AreaCalculator.calculateRectangleArea(5, 10))
+    println(AreaCalculator.calculateRectangleArea(5.5, 4.0))
+
+    println(AreaCalculator.calculateCircleArea(3))
+    println(AreaCalculator.calculateCircleArea(3.0))
+
+    println(AreaCalculator.calculateTriangleArea(4, 6))
+    println(AreaCalculator.calculateTriangleArea(4.0, 6.0))
+}
